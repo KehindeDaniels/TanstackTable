@@ -1,7 +1,5 @@
-// src/pages/Layout.jsx
-
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 const navigationItems = [
   { name: "BasicTable", link: "." },
@@ -71,13 +69,17 @@ const Layout = () => {
               <div className="hidden sm:block sm:ml-6">
                 <div className="flex space-x-4">
                   {navigationItems.map((item) => (
-                    <Link
+                    <NavLink
                       key={item.name}
                       to={item.link}
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className={({ isActive }) =>
+                        `text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${
+                          isActive ? "bg-gray-900 text-white" : ""
+                        }`
+                      }
                     >
                       {item.name}
-                    </Link>
+                    </NavLink>
                   ))}
                 </div>
               </div>
@@ -113,13 +115,17 @@ const Layout = () => {
               </button>
               <div className="space-y-1">
                 {navigationItems.map((item) => (
-                  <Link
+                  <NavLink
                     key={item.name}
                     to={item.link}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    className={({ isActive }) =>
+                      `text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium ${
+                        isActive ? "bg-gray-900 text-white" : ""
+                      }`
+                    }
                   >
                     {item.name}
-                  </Link>
+                  </NavLink>
                 ))}
               </div>
             </div>
