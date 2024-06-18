@@ -132,7 +132,7 @@ const Layout = () => {
           </div>
         )}
       </nav>
-      <main className="p-4">
+      <main className="p-4 bg-white dark:bg-gray-800">
         <Outlet />
       </main>
     </div>
